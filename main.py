@@ -1,6 +1,6 @@
-from dotenv import dotenv_values
-from openai import OpenAI
+from utils.textGeneration import generateText
 
-config = dotenv_values('.env')
+userQuestion = input("Pergunta: ")
 
-client = OpenAI(organization=config['ORGANIZATION_ID'])
+answer = generateText(userQuestion)
+print("Resposta:", answer)
