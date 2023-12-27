@@ -2,7 +2,7 @@ from dotenv import dotenv_values
 import requests, json
 
 config = dotenv_values('.env')
-link = "https://api.openai.com/v1/chat/completions"
+url = "https://api.openai.com/v1/chat/completions"
 
 headers = {
     "Content-Type": "application/json",
@@ -17,5 +17,5 @@ def generateText(question):
         ]
     }
 
-    response = requests.post(link, data=json.dumps(requestBody), headers=headers).json()
+    response = requests.post(url, data=json.dumps(requestBody), headers=headers).json()
     return response['choices'][0]['message']['content']
